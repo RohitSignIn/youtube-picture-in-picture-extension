@@ -4,17 +4,15 @@ document.getElementById('pip-btn').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.scripting.executeScript({
             target: { tabId: tabs[0].id },
-            function: addVideoId
+            function: reqPipMode
         });
     });
 });
 
-function addVideoId() {
-    console.log('Running addVideoId() function');
+function reqPipMode() {
     const videoElement = document.querySelector("#movie_player .html5-main-video");
     if (videoElement) {
         videoElement.requestPictureInPicture()
-        console.log('Video Element Found');
     } else {
         console.log('No video element found on this page.');
     }
