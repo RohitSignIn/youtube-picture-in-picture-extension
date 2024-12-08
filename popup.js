@@ -1,5 +1,5 @@
 // popup.js
-document.getElementById('add-id-button').addEventListener('click', () => {
+document.getElementById('pip-btn').addEventListener('click', () => {
     // Query for the active tab
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.scripting.executeScript({
